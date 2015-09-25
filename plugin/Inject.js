@@ -17,7 +17,7 @@ setTimeout(function(){
         window.ykvid = m[1];
         setMsg('<a href="javascript:getVideoAddr()">立即播放</a>');
     }
-},1300);
+},500);
 
 window.getVideoAddr = function(){
     setMsg('<a href="#">正在解析视频地址</a>');
