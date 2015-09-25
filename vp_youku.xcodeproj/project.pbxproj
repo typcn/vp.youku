@@ -227,7 +227,7 @@
 				);
 				INFOPLIST_FILE = plugin/Info.plist;
 				INSTALL_PATH = "/Users/typcn/Library/Application Support/com.typcn.bilibili/Plugins";
-				PRODUCT_BUNDLE_IDENTIFIER = com.typcn.vp.plugin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typcn.vp.youku;
 				PRODUCT_NAME = youku;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -245,7 +245,7 @@
 				);
 				INFOPLIST_FILE = plugin/Info.plist;
 				INSTALL_PATH = "/Users/typcn/Library/Application Support/com.typcn.bilibili/Plugins";
-				PRODUCT_BUNDLE_IDENTIFIER = com.typcn.vp.plugin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.typcn.vp.youku;
 				PRODUCT_NAME = youku;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
