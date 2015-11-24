@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD0CCC5A1BAEE47D008FD9BF /* youku.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0CCC591BAEE47D008FD9BF /* youku.m */; settings = {ASSET_TAGS = (); }; };
-		FD0CCC5D1BAEE73D008FD9BF /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD0CCC5C1BAEE73D008FD9BF /* Settings.xib */; settings = {ASSET_TAGS = (); }; };
-		FD0CCC5F1BAEE8F0008FD9BF /* Inject.js in Resources */ = {isa = PBXBuildFile; fileRef = FD0CCC5E1BAEE8F0008FD9BF /* Inject.js */; settings = {ASSET_TAGS = (); }; };
-		FD59847C1BB5BBD9001E0B17 /* VPPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59847B1BB5BBD9001E0B17 /* VPPlugin.framework */; settings = {ASSET_TAGS = (); }; };
+		FD0CCC5A1BAEE47D008FD9BF /* youku.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0CCC591BAEE47D008FD9BF /* youku.m */; };
+		FD0CCC5D1BAEE73D008FD9BF /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD0CCC5C1BAEE73D008FD9BF /* Settings.xib */; };
+		FD0CCC5F1BAEE8F0008FD9BF /* Inject.js in Resources */ = {isa = PBXBuildFile; fileRef = FD0CCC5E1BAEE8F0008FD9BF /* Inject.js */; };
+		FD59847C1BB5BBD9001E0B17 /* VPPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD59847B1BB5BBD9001E0B17 /* VPPlugin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +219,7 @@
 		FD47B9EC1BAECBDE00BAF397 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "TYPCN Offical Software Signing #2";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -237,6 +238,7 @@
 		FD47B9ED1BAECBDE00BAF397 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "TYPCN Offical Software Signing #2";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = NO;
 				FRAMEWORK_SEARCH_PATHS = (
