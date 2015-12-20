@@ -43,11 +43,37 @@
 - (NSString *)processEvent:(NSString *)eventName :(NSString *)eventData{
     
     if([eventName isEqualToString:@"youku-playvideo"]){
-        NSTask *task = [[NSTask alloc] init];
-        task.launchPath = @"/usr/bin/open";
-        task.arguments = @[@"-a",@"QuickTime Player",eventData];
-        [task launch];
-        return NULL;
+        
+        NSArray *arr = [eventData componentsSeparatedByString:@"|"];
+        if([arr count] == 1){
+            NSTask *task = [[NSTask alloc] init];
+            task.launchPath = @"/usr/bin/open";
+            task.arguments = @[@"-a",@"QuickTime Player",eventData];
+            [task launch];
+        }else if([arr count] == 2){
+            NSURL* URL = [NSURL URLWithString:arr[0]];
+            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL];
+            request.HTTPMethod = @"GET";
+            [request setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9" forHTTPHeaderField:@"User-Agent"];
+            [request setValue:arr[1] forHTTPHeaderField:@"Cookie"];
+            NSURLResponse * response = nil;
+            NSError * error = nil;
+            NSData * data = [NSURLConnection sendSynchronousRequest:request
+                                                                  returningResponse:&response
+                                                                            error:&error];
+            if(error || !data){
+                return NULL;
+            }
+            NSString *name = [NSString stringWithFormat:@"youku_%ld.m3u8",time(0)];
+            NSString *path = [NSString stringWithFormat:@"%@bilimac_http_serv/%@",NSTemporaryDirectory(),name];
+            [data writeToFile:path atomically:YES];
+            
+            NSTask *task = [[NSTask alloc] init];
+            task.launchPath = @"/usr/bin/open";
+            task.arguments = @[@"-a",@"QuickTime Player",[NSString stringWithFormat:@"http://localhost:23330/temp_content/%@",name]];
+            [task launch];
+            return NULL;
+        }
     }
     
     return NULL; // return video url to play

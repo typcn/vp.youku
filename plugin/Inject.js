@@ -37,7 +37,14 @@ window.getVideoAddr = function(){
 
 window.invokePlayer = function(i){
     var vaddr = window.videoAddr[i][1];
-    sendToPlugin({ action:'youku-playvideo', data:vaddr });
+    var x = '';
+    var c = document.cookie.split('; ');
+    for(var i = 0;i < c.length;i++){
+        if(c[i].indexOf('r=') == 0){
+            x = c[i];
+        }
+    }
+    sendToPlugin({ action:'youku-playvideo', data:vaddr + '|' + x});
 }
 
 window.log = console.log;
@@ -322,7 +329,7 @@ window.youkuParser = function (_id, callback) {
             sid   = c[0];
             token = c[1];
             var ep  = encodeURIComponent(D(E(F(mk_a4 + "poz" + userCache_a2, [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + _id + "_" + token)));
-            var oip = a.ip;
+            var oip = a.security.ip;
             var source = [
                           ['超清', 'http://pl.youku.com/playlist/m3u8?vid='+_id+'&type=hd2&ctype=12&keyframe=1&ep='+ep+'&sid='+sid+'&token='+token+'&ev=1&oip='+oip],
                           ['高清', 'http://pl.youku.com/playlist/m3u8?vid='+_id+'&type=mp4&ctype=12&keyframe=1&ep='+ep+'&sid='+sid+'&token='+token+'&ev=1&oip='+oip],
